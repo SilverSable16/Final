@@ -1,0 +1,117 @@
+.single__product {
+    background: #141124;
+    border-radius: 10px;
+    cursor: pointer;
+    animation: animate 1s ease-in;
+    border: 2px solid transparent; /* Borde inicial transparente */
+}
+
+.single__product.ocupada {
+    border-color: red; /* Color del borde para mesas ocupadas */
+}
+
+.single__product.disponible {
+    border-color: green; /* Color del borde para mesas disponibles */
+}
+
+.single__product:hover {
+    box-shadow: 5px 5px 10px -5px #f5b70a;
+}
+
+.single__product.ocupada:hover {
+    box-shadow: 5px 5px 10px -5px #ff0000; /* Rojo para ocupada */
+}
+
+.single__product.disponible:hover {
+    box-shadow: 5px 5px 10px -5px #00ff00; /* Verde para disponible */
+}
+
+/* Resto de tu CSS */
+.product__content {
+    padding: 0px 20px;
+    padding-bottom: 15px;
+}
+
+.product__content h6 {
+    color: #f5b70a;
+    text-align: center;
+}
+
+.rating span i {
+    color: #f76E11;
+}
+
+.rating {
+    margin-bottom: 10px;
+}
+
+.price {
+    color: #fff;
+}
+
+.price span {
+    color: #f5b70a;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.shopping__icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: #f76E11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.single__product .quantity-selector {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.single__product .quantity-selector label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.single__product .quantity-selector input {
+    width: 60px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.estado {
+    font-size: 14px; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: #333; /* Color del texto */
+    margin-left: 10px; /* Espaciado para separar del resto del contenido */
+}
+
+@keyframes animate {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .product__content h6 {
+        font-size: 0.9rem;
+    }
+    .price {
+        font-size: 0.8rem;
+    }
+
+    .price span {
+        font-size: 0.9rem;
+    }
+}

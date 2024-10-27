@@ -1,0 +1,218 @@
+.header{
+    width: 100%;
+    height: 75px;
+    line-height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background: #141124;
+}
+.navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.search-results {
+    position: absolute;
+    background-color: white; /* Color de fondo */
+    border: 1px solid #ccc; /* Borde para la lista */
+    z-index: 1000; /* Para que esté por encima de otros elementos */
+    max-height: 200px; /* Altura máxima para la lista */
+    overflow-y: auto; /* Habilita el desplazamiento */
+    width: 100%; /* Ancho completo */
+}
+
+.search-results li {
+    padding: 10px; /* Espaciado en los elementos de la lista */
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+}
+
+.search-results li:hover {
+    background-color: #f0f0f0; /* Cambio de fondo al pasar el ratón */
+}
+
+
+.nav__list{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    list-style: none;
+    column-gap: 2.7rem;
+}
+.nav__item a{
+color: #fff;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.nav__item a:hover{
+    color: #F5B70A;
+}
+
+.custom__search{
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    height: 35px;
+    border-radius: 50px;
+    background: #0A071A;
+}
+
+.custom__search input{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+}
+.custom__search span i {
+    cursor: pointer;
+}
+.mobile__menu span i {
+    font-size: 1.3rem;
+}
+
+.mobile__menu{
+    display: none;
+}
+
+.cart__icon{
+    position: relative;
+    z-index: 999;
+    width: 40px;
+    height: 30px;
+    border-radius: 5px;
+    background: #F76E11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge{
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    z-index: 1000;
+    color: #141124;
+    font-size: 0.8rem;
+    font-weight: 700;
+
+}
+
+.login__icon {
+    position: relative;
+    z-index: 999;
+    width: 40px;
+    height: 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+}
+
+.login__icon i {
+    font-size: 1.5rem; /* Ajusta el tamaño del ícono */
+    color: #fff; /* Cambia el color según prefieras */
+    transition: color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre el ícono */
+.login__icon:hover i {
+    color: #F76E11; /* Color al hacer hover (puedes personalizarlo) */
+}
+
+.cart-icon-updated {
+    animation: bounce 0.5s ease; /* Duración y tipo de animación */
+}
+
+.icono-login-activo {
+    color: orange; /* Cambia el color del ícono a naranja */
+}
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* Posición original */
+    }
+    40% {
+        transform: translateY(-10px); /* Subir un poco */
+    }
+    60% {
+        transform: translateY(-5px); /* Bajar un poco menos */
+    }
+}
+
+
+@media only screen and (max-width:992px){
+    .nav__menu{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        background: #0a071a7e;
+        display: none;
+    }
+    .nav__list__wrapper{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 250px;  
+        height: 100%;
+        z-index: 100;
+        background: #141124;
+        flex-direction: column;
+        box-shadow: 5px 5px 15px -5px #F5B70A;
+        justify-content: center !important;
+        padding: 0px 20px;
+    }
+    .nav__list{
+        flex-direction: column;
+        padding: 0;
+    }  
+    .nav__item a{
+        font-size: 0.9rem;
+    }
+    .header{
+        line-height: 40px;
+        padding: 10px 0px;
+        height: 110px;
+    }
+    .custom__search{
+        border: 1px solid #C4C4C4;
+        padding:  5px 15px;
+        font-size: 0.9rem;
+        height: 30px;
+        margin-top: 15px;
+    }
+    .mobile__menu{
+        display: block;
+    }
+
+    .logo h2{
+        font-size: 1.5rem;
+    }
+    .active__menu{
+        display: block;
+    }
+
+    .login__icon {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.login__icon i {
+    font-size: 1.5rem; /* Ajusta el tamaño del ícono */
+    color: #333; /* Cambia el color según prefieras */
+    transition: color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre el ícono */
+.login__icon:hover i {
+    color: #007bff; /* Color al hacer hover (puedes personalizarlo) */
+}
+}

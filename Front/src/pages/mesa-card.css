@@ -1,0 +1,178 @@
+.single__product{
+    background: #141124;
+    border-radius: 10px;
+    cursor: pointer;
+    animation: animate 1s ease-in;
+}
+.single__product:hover {
+    box-shadow: 5px 5px 10px -5px #f5b70a;
+}
+
+.product__content {
+    padding: 0px 20px;
+    padding-bottom: 15px;
+}
+.product__content h6 {
+    color: #f5b70a;
+    text-align: center;
+}
+.rating span i {
+    color: #f76E11;
+}
+.rating{
+    margin-bottom: 10px;
+}
+.price {
+    color: #fff;
+}
+.price span {
+    color:#f5b70a;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.shopping__icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: #f76E11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+/* product-card.css */
+.single__product .quantity-selector {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.single__product .quantity-selector label {
+    color: #fff;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.single__product .quantity-selector input {
+    width: 60px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* product-card.css */
+.single__product .quantity-selector {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.single__product .quantity-selector label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.single__product .quantity-selector input {
+    width: 60px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn-reservar {
+    background-color: #f5b70a; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+    transition: background-color 0.3s; /* Transición para efectos hover */
+}
+
+.btn-reservar:hover {
+    background-color: #d49f0e; /* Color más oscuro al pasar el ratón */
+}
+
+.reservation-form {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #242424; /* Color de fondo del formulario */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.reservation-form label {
+    display: block; /* Mostrar cada etiqueta en una nueva línea */
+    margin-bottom: 10px; /* Espacio entre las etiquetas */
+    color: white; /* Color del texto */
+}
+
+.reservation-form input {
+    width: 100%; /* Ancho completo */
+    padding: 8px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde del input */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-top: 5px; /* Espacio entre la etiqueta y el input */
+}
+
+.btn-submit {
+    margin-top: 10px; /* Espacio encima del botón */
+    background-color: #f5b70a; /* Color del fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+}
+
+.btn-submit:hover {
+    background-color: #d49f0e; /* Color más oscuro al pasar el ratón */
+}
+.reservation-form-container {
+    position: relative; /* Para permitir la posición absoluta del botón de cerrar */
+}
+
+.btn-close {
+    position: absolute; /* Posicionar el botón en la esquina superior izquierda */
+    top: 10px; /* Espacio desde la parte superior */
+    left: 10px; /* Espacio desde la izquierda */
+    background-color: transparent; /* Fondo transparente */
+    color: #ff4444; /* Color del texto */
+    border: none; /* Sin borde */
+    font-size: 12px; /* Tamaño de fuente pequeño */
+    cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+}
+
+.btn-close:hover {
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+}
+
+
+
+@keyframes animate{
+    from{
+        transform: scale(0);
+    }
+
+    to{
+        transform: scale(1);
+    }
+}
+@media only screen and (max-width: 767px) {
+    .product__content h6{
+        font-size: 0.9rem;
+    }
+    .price{
+        font-size: 0.8rem;
+    }
+
+    .price span{
+        font-size: 0.9rem;
+    }
+}
