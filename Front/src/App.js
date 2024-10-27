@@ -8,7 +8,8 @@ import Reservas from './pages/Reservas';
 import Sucursales from './pages/Sucursales';
 import Ayuda from './pages/Ayuda';
 import Cart from './components/cart/Cart';
-import { CartProvider } from '../src/components/cart/CartContext'; // Asegúrate de que la ruta sea correcta
+import { CartProvider } from '../src/components/cart/CartContext';
+import UserProfile from './pages/UserProfile'; // Asegúrate de que la ruta sea correcta
 import ErrorBoundary from './pages/ErrorBoundary';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                         <Route path="/sucursales" element={<Sucursales />} />
                         <Route path="/Ayuda" element={<Ayuda />} />
                         <Route path="/cart" element={<Cart />} />
+                        <Route path="/user-profile" element={<UserProfile />} />
                     </Routes>
                 </Router>
             </CartProvider>
