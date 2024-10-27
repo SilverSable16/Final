@@ -2,7 +2,7 @@
 const express = require('express');
 const Stripe = require('stripe');
 const router = express.Router();  //la secret key aca es la mia lol
-const stripe = new Stripe('sk_test_51Q8MmwRxazJ4JItPwJYkyXjAp0yzeDq8wjiGwsIKQWk1SiAnZvnWpmqVxfsX5Tma0RdViSuf8FUrcDvlst3yqoCl00irXJTGlO');
+const stripe = new Stripe('stripe-secret-key'); //el nombre lo dice todo
 
 router.post('/create-checkout-session', async (req, res) => {
     const { total } = req.body; // Recibe el total desde el frontend
