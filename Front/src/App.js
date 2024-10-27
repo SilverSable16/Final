@@ -8,25 +8,25 @@ import Reservas from './pages/Reservas';
 import Sucursales from './pages/Sucursales';
 import Ayuda from './pages/Ayuda';
 import Cart from './components/cart/Cart';
-import { CartProvider } from '../src/components/cart/CartContext';// Asegúrate de que la ruta sea correcta
+import { CartProvider } from '../src/components/cart/CartContext'; // Asegúrate de que la ruta sea correcta
 import ErrorBoundary from './pages/ErrorBoundary';
+
 function App() {
     return (
         <ErrorBoundary>
-        <CartProvider component>
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/menu-pack" element={<MenuPack />} />
-                <Route path="/reservas" element={<Reservas />} />
-                <Route path="/sucursales" element={<Sucursales />} />
-                <Route path="/Ayuda" element={<Ayuda />} />
-                <Route path="/cart" element={<Cart />} />
-
-            </Routes>
-        </Router>
-        </CartProvider>
+            <CartProvider>
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/menu-pack" element={<MenuPack />} />
+                        <Route path="/reservas" element={<Reservas />} />
+                        <Route path="/sucursales" element={<Sucursales />} />
+                        <Route path="/Ayuda" element={<Ayuda />} />
+                        <Route path="/cart" element={<Cart />} />
+                    </Routes>
+                </Router>
+            </CartProvider>
         </ErrorBoundary>
     );
 }

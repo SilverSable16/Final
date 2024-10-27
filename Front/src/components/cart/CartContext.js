@@ -3,7 +3,10 @@ import React, { createContext, useState, useContext } from 'react';
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(() => {
+        const storedCart = sessionStorage.getItem('cartItems');
+        return storedCart ? JSON.parse(storedCart) : [];
+    });
 
     const updateCart = (items) => {
         try {
@@ -11,43 +14,50 @@ export const CartProvider = ({ children }) => {
                 throw new Error("El carrito debe ser un array.");
             }
             setCartItems(items);
-            localStorage.setItem('cartItems', JSON.stringify(items));
+            sessionStorage.setItem('cartItems', JSON.stringify(items));
         } catch (error) {
             console.error("Error actualizando el carrito:", error);
         }
     };
 
     const addToCart = (item) => {
+        console.log("Intentando agregar al carrito:", item); // Agregado para debug
         try {
             setCartItems((prevCartItems) => {
-                const existingItemIndex = prevCartItems.findIndex(cartItem => cartItem.idAlimento === item.idAlimento);
+                const isReservation = item.codigoMesaReserva !== undefined;
                 let updatedItems;
-
-                if (existingItemIndex !== -1) {
-                    const updatedItem = {
-                        ...prevCartItems[existingItemIndex],
-                        quantity: prevCartItems[existingItemIndex].quantity + item.quantity
-                    };
-                    updatedItems = [
-                        ...prevCartItems.slice(0, existingItemIndex),
-                        updatedItem,
-                        ...prevCartItems.slice(existingItemIndex + 1)
-                    ];
+    
+                if (isReservation) {
+                    updatedItems = [...prevCartItems, item];
                 } else {
-                    const newItem = { ...item, quantity: item.quantity };
-                    updatedItems = [...prevCartItems, newItem];
+                    const existingItemIndex = prevCartItems.findIndex(cartItem => cartItem.idAlimento === item.idAlimento);
+                    if (existingItemIndex !== -1) {
+                        const updatedItem = {
+                            ...prevCartItems[existingItemIndex],
+                            quantity: prevCartItems[existingItemIndex].quantity + item.quantity
+                        };
+                        updatedItems = [
+                            ...prevCartItems.slice(0, existingItemIndex),
+                            updatedItem,
+                            ...prevCartItems.slice(existingItemIndex + 1)
+                        ];
+                    } else {
+                        const newItem = { ...item, quantity: item.quantity };
+                        updatedItems = [...prevCartItems, newItem];
+                    }
                 }
-
+    
                 updateCart(updatedItems);
-                console.log("Item added to cart:", item);
+                console.log("Carrito actualizado:", updatedItems); // Agregado para debug
                 return updatedItems;
             });
         } catch (error) {
             console.error("Error agregando al carrito:", error);
         }
     };
-
+    
     const removeFromCart = (itemId, quantityToRemove) => {
+        console.log("Intentando eliminar del carrito:", itemId); // Agregado para debug
         try {
             setCartItems((prevCartItems) => {
                 const updatedItems = prevCartItems.reduce((acc, item) => {
@@ -56,20 +66,21 @@ export const CartProvider = ({ children }) => {
                         if (newQuantity > 0) {
                             acc.push({ ...item, quantity: newQuantity });
                         }
-                    } else {
+                    } else if (item.codigoMesaReserva !== itemId) {
                         acc.push(item);
                     }
                     return acc;
                 }, []);
-
+    
                 updateCart(updatedItems);
-                console.log("Item removed from cart:", itemId);
+                console.log("Carrito actualizado después de eliminar:", updatedItems); // Agregado para debug
                 return updatedItems;
             });
         } catch (error) {
             console.error("Error eliminando del carrito:", error);
         }
     };
+    
 
     return (
         <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>

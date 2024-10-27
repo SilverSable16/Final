@@ -10,10 +10,10 @@ import App from "./App";
 import { CartProvider } from '../src/components/cart/CartContext';// Asegúrate de que la ruta sea correcta
 
 ReactDOM.render(
+  <CartProvider>
   <React.StrictMode>
-    <CartProvider>
       <App />
-    </CartProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </CartProvider>,
   document.getElementById("root")
 );
