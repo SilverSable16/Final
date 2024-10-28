@@ -38,6 +38,20 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 input[type="date"] {
     background: transparent; /* Para Firefox */
 }
+button.verificar-btn {
+    background-color: #f76e11; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Relleno para darle más tamaño */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    margin-left: 25px; /* Espacio a la izquierda */
+    transition: background-color 0.3s; /* Efecto de transición */
+}
+
+button.verificar-btn:hover {
+    background-color: #d49f0e; /* Color de fondo al pasar el cursor */
+}
 
 input[type="time"] {
     background: transparent; /* Para Firefox */

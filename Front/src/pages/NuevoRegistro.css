@@ -1,99 +1,93 @@
-/* Estilo general para el contenedor */
-.login__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('../Multi/Fondolog.jpg'); /* Cambia la ruta por la ubicación de tu imagen */
-    background-size: cover;
-}
-
-/* Estilo para el formulario */
-.form__wrapper {
-    background: #fff;
+/* Estilos del formulario */
+.form-wrapper {
+    background-color: #0A071A;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #fff;
     width: 100%;
     max-width: 400px;
     text-align: center;
 }
 
 /* Título del formulario */
-.form__wrapper h2 {
+.form-wrapper h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: #ffffff; /* Color blanco para coincidir con el fondo oscuro */
 }
 
 /* Estilo de los campos del formulario */
-.form__group {
+.form-group {
     margin-bottom: 15px;
     text-align: left;
 }
 
-.form__group label {
+.form-group label {
     display: block;
     margin-bottom: 5px;
     font-size: 0.9rem;
-    color: #555;
+    color: #ffffff; /* Color blanco para el texto */
 }
 
-.form__group input {
+.form-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #ffffff; /* Texto blanco */
+    background-color: transparent; /* Fondo oscuro para contraste */
     outline: none;
 }
 
 /* Botón de envío */
-.btn__primary {
+.btn-primary {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #f76e11;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     color: #fff;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.btn__primary:hover {
-    background-color: #0056b3;
+.btn-primary:hover {
+    background-color: #F5B70A; /* Coincide con el hover del login */
 }
 
 /* Texto para alternar entre login y registro */
-.toggle__text {
+.toggle-text {
     margin-top: 15px;
-    color: #555;
+    color: #ffffff; /* Color blanco para el texto */
     font-size: 0.9rem;
 }
 
-.toggle__text span {
-    color: #007bff;
+.toggle-text span {
+    color: #f76e11;
     cursor: pointer;
     font-weight: bold;
 }
 
+/* Botón de volver a inicio */
 .back-to-home-button {
     position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000; /* Asegúrate de que el botón esté encima de otros elementos */
+    top: 20px; /* Separación desde la parte superior */
+    left: 20px; /* Separación desde el lado izquierdo */
+    z-index: 1000; /* Asegura que el botón esté encima de otros elementos */
 }
 
 .back-to-home-button button {
     background-color: #f76e11;
     color: #fff;
     border: none;
-    padding: 5px 10px;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
 
 .back-to-home-button button:hover {
-    background-color: #e65c00; /* Cambia el color en hover */
+    background-color: #e65c00; /* Color en hover */
 }
-

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './header.css';
 import { Container } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Importa useNavigate
 import { useCart } from '../cart/CartContext';
 import logo from '../../assets/images/logo2.png';
 
@@ -18,6 +18,7 @@ const Header = () => {
     const menuToggle = () => menuRef.current.classList.toggle('active__menu');
     
     const [cartUpdated, setCartUpdated] = useState(false);
+    const navigate = useNavigate(); // Inicializa useNavigate
 
     // Efecto que se activa cuando cartItems cambia
     useEffect(() => {
@@ -30,6 +31,15 @@ const Header = () => {
             return () => clearTimeout(timer); // Limpia el temporizador
         }
     }, [cartItems]);
+
+    const handleLoginClick = () => {
+        const token = localStorage.getItem('token'); // Obtener el token del localStorage
+        if (token) {
+            navigate('/user-profile'); // Redirige al perfil si hay sesión
+        } else {
+            navigate('/login'); // Redirige al login si no hay sesión
+        }
+    };
 
     return (
         <header className="header">
@@ -50,7 +60,7 @@ const Header = () => {
                             <ul className="nav__list">
                                 {navLinks.map((item, index) => (
                                     <li className="nav__item" key={index}>
-                                        <a href={item.url} onClick={menuToggle}>{item.label}</a>
+                                        <Link to={item.url} onClick={menuToggle}>{item.label}</Link>
                                     </li>
                                 ))}
                             </ul>
@@ -66,9 +76,9 @@ const Header = () => {
                                     </Link>
                                 </div>
                                 <div className="login__icon" style={{ marginLeft: '15px' }}>
-                                    <Link to="/login">
+                                    <span onClick={handleLoginClick} style={{ cursor: 'pointer' }}>
                                         <i className="ri-user-line" style={{ fontSize: '1.5rem' }}></i>
-                                    </Link>
+                                    </span>
                                 </div>
                             </div>
                         </div>

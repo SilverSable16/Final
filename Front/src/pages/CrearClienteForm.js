@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './NuevoRegistro.css'; // Mantén este archivo para estilos específicos si los necesitas
+import './NuevoRegistro.css'; // Asegúrate de que este archivo contenga los nuevos estilos actualizados
 
 const CrearClienteForm = () => {
     const [formData, setFormData] = useState({
@@ -58,10 +58,10 @@ const CrearClienteForm = () => {
     };
 
     return (
-        <div className="form__wrapper"> {/* Aplicar el mismo estilo del formulario */}
+        <div className="form-wrapper"> {/* Estilos actualizados para coincidir con el login */}
             <h2>Crear Cliente y Usuario</h2>
             <form onSubmit={handleSubmit}>
-                <div className="form__group">
+                <div className="form-group">
                     <label>Correo</label>
                     <input
                         type="email"
@@ -72,7 +72,7 @@ const CrearClienteForm = () => {
                         required
                     />
                 </div>
-                <div className="form__group">
+                <div className="form-group">
                     <label>Nombre</label>
                     <input
                         type="text"
@@ -83,7 +83,7 @@ const CrearClienteForm = () => {
                         required
                     />
                 </div>
-                <div className="form__group">
+                <div className="form-group">
                     <label>Apellido</label>
                     <input
                         type="text"
@@ -94,7 +94,7 @@ const CrearClienteForm = () => {
                         required
                     />
                 </div>
-                <div className="form__group">
+                <div className="form-group">
                     <label>NIT</label>
                     <input
                         type="text"
@@ -105,7 +105,7 @@ const CrearClienteForm = () => {
                         required
                     />
                 </div>
-                <div className="form__group">
+                <div className="form-group">
                     <label>Dirección</label>
                     <input
                         type="text"
@@ -116,7 +116,7 @@ const CrearClienteForm = () => {
                         required
                     />
                 </div>
-                <div className="form__group">
+                <div className="form-group">
                     <label>Teléfono</label>
                     <input
                         type="text"
@@ -127,17 +127,19 @@ const CrearClienteForm = () => {
                         required
                     />
                 </div>
-                <div className="form__group">
+                <div className="form-group">
                     <label>Fecha de Nacimiento</label>
                     <input
                         type="date"
                         name="fechaNacimiento"
                         value={formData.fechaNacimiento}
                         onChange={handleChange}
+                        placeholder="Fecha de Nacimiento"
                         required
+                        className="form-input" // Asegúrate de tener esta clase en los otros campos también
                     />
                 </div>
-                <div className="form__group">
+                <div className="form-group">
                     <label>Contraseña</label>
                     <input
                         type="password"
@@ -148,7 +150,7 @@ const CrearClienteForm = () => {
                         required
                     />
                 </div>
-                <div className="form__group">
+                <div className="form-group">
                     <label>Confirmar Contraseña</label>
                     <input
                         type="password"
@@ -159,7 +161,7 @@ const CrearClienteForm = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="btn__primary" disabled={loading}>
+                <button type="submit" className="btn-primary" disabled={loading}>
                     {loading ? 'Creando...' : 'Crear Cliente y Usuario'}
                 </button>
             </form>

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import './sucursales.css'; // Archivo CSS para los estilos de la página
 import antigua from '../Multi/antigua.jpg';
 import cayala from '../Multi/cayala.jpg';
-import zona10 from '../Multi/zona10.jpg';
+
 
 
 const sucursalesData = [
@@ -25,14 +25,7 @@ const sucursalesData = [
         horario: 'Lunes a Sábado: 10:00 AM - 6:00 PM',
         imagen: cayala, // Ruta de la imagen
     },
-    {
-        id: 3,
-        nombre: 'Sucursal Sur',
-        direccion: 'Calle Tercera 789, Ciudad',
-        telefono: '(123) 456-7892',
-        horario: 'Martes a Domingo: 11:00 AM - 7:00 PM',
-        imagen: zona10, // Ruta de la imagen
-    },
+   
 ];
 const Sucursales = () => {
     const navigate = useNavigate();

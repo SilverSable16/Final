@@ -26,7 +26,7 @@ const Ayuda = () => {
         <div>
             <Header />
             <main className="faq-container">
-                <h2>Preguntas Frecuentes</h2>
+                <h2>Tienes algunas dudas, aquí están algunas preguntas frecuentes</h2>
                 <div className="faq-list">
                     {faqData.map((faq, index) => (
                         <div key={index} className="faq-item">
@@ -42,3 +42,4 @@ const Ayuda = () => {
 };
 
 export default Ayuda;
+

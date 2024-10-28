@@ -1,30 +1,50 @@
 .faq-container {
-    margin-top: 55px;
-    padding: 20px;
+    margin-top: 300px; /* Aumenté el margen superior para dejar espacio para el Header */
+    padding: 30px; /* Mantiene el padding para más espacio interno */
     max-width: 800px;
     margin: 0 auto;
     color: #fff;
+    background-color: #1a1a1a; /* Fondo más oscuro para contrastar */
+    border-radius: 8px; /* Bordes redondeados para un mejor aspecto */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
 }
 
 .faq-list {
+    margin-top: 20px; /* Mantener el margen superior */
+}
+.faq-container h2{
     margin-top: 55px;
-    margin-top: 20px;
+    font-size: 1.8em; /* Tamaño de fuente grande para destacar */
+    color: #f76e11; /* Color que ya has utilizado para las preguntas */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+    text-align: center; /* Centrar el texto */
+    border-bottom: 2px solid #444; /* Línea sutil debajo del encabezado */
+    padding-bottom: 10px; /* Espacio entre el texto y la línea */
+    font-weight: bold; /* Hacer el texto más destacado */
+    letter-spacing: 1px; /* Espaciado entre letras para mayor legibilidad */
+}
+.faq-item {
+    margin-top: 20px; /* Ajustado para espacio uniforme entre preguntas */
+    background-color: #2b2b2b; /* Fondo más claro para diferenciar cada item */
+    padding: 20px; /* Aumenté el padding para mayor comodidad */
+    border-radius: 5px;
+    border: 1px solid #444; /* Borde sutil para delimitar */
+    transition: background-color 0.3s; /* Transición suave al pasar el mouse */
 }
 
-.faq-item {
-    margin-top: 55px;
-    background-color: #333;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 15px;
+.faq-item:hover {
+    background-color: #3d3d3d; /* Cambio de color al pasar el mouse */
 }
 
 .faq-question {
     font-weight: bold;
     color: #f76e11;
+    font-size: 1.2em; /* Tamaño de fuente más grande para preguntas */
 }
 
 .faq-answer {
     margin-top: 10px;
     color: #ccc;
+    font-size: 1em; /* Tamaño de fuente ajustado para mejor legibilidad */
+    line-height: 1.5; /* Espaciado entre líneas para facilitar la lectura */
 }

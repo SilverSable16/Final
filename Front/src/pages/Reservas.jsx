@@ -127,7 +127,7 @@ const Reservas = () => {
                             <input type="date" onChange={(e) => setFechaConsulta(e.target.value)} />
                             <input type="time" onChange={(e) => setHoraInicio(e.target.value)} />
                             <input type="time" onChange={(e) => setHoraFin(e.target.value)} />
-                            <button onClick={verificarDisponibilidad}>Verificar</button>
+                            <button onClick={verificarDisponibilidad} className="verificar-btn">Verificar</button>
                         </Col>
                         {/* Mostrar las mesas según su disponibilidad */}
                         {availableTables.length > 0 ? (

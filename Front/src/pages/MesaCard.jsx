@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import './mesa-card.css';
 import { useCart } from '../components/cart/CartContext'; // Importar el contexto del carrito
 
@@ -72,22 +72,15 @@ const MesaCard = ({ item }) => {
             correo,
             cantidadPersonas: Capacidad,
             precio,
-            productos: [{  // Cambia aquí para enviar un array de productos
+            productos: [{  
                 costo: precio,
-                lugarCompra: "Linea",  // Puedes ajustar esto según lo que necesites
+                lugarCompra: "Linea",  
                 codigoMesaDetalle: CodigoMesa
             }],
             horaInicial: fechaHoraInicio,
             horaFinal: fechaHoraFin,
             fechaReserva,
-            DetalleReserva: { // Esta parte no es necesaria para el backend, quítala
-                codigo_mesa: CodigoMesa,
-                costo: precio,
-                fecha_compra: new Date().toISOString(),
-                lugar_compra: "Linea"
-            }
         };
-        
 
         try {
             const response = await fetch('https://federico-fazbear.onrender.com/api/reserva/compras', {
@@ -130,7 +123,7 @@ const MesaCard = ({ item }) => {
     };
 
     return (
-        <div className={`single__product`}>
+        <div className="single__product">
             <img src={imagen} alt={`Mesa ${NumMesa}`} className="img-fluid mb-2" />
             <div className="product__content">
                 <h6>Mesa {NumMesa}</h6>
@@ -143,35 +136,37 @@ const MesaCard = ({ item }) => {
                         Precio: <span>${precio}</span>
                     </span>
                 </div>
-                <button onClick={() => setShowForm(true)}>Reservar</button>
+                <button className="btn-reservar" onClick={() => setShowForm(true)}>Reservar</button>
 
                 {showForm && (
-                    <div className="form-container">
-                        <button className="close-button" onClick={() => setShowForm(false)}>X</button>
-                        <h5>Formulario de Reserva</h5>
-                        <input 
-                            type="email" 
-                            placeholder="Correo electrónico" 
-                            value={correo} 
-                            onChange={(e) => setCorreo(e.target.value)} 
-                            onBlur={verificarCliente} 
-                        />
-                        <input 
-                            type="date" 
-                            value={fechaReserva} 
-                            onChange={(e) => setFechaReserva(e.target.value)} 
-                        />
-                        <input 
-                            type="time" 
-                            value={horaInicio} 
-                            onChange={(e) => setHoraInicio(e.target.value)} 
-                        />
-                        <input 
-                            type="time" 
-                            value={horaFin} 
-                            onChange={(e) => setHoraFin(e.target.value)} 
-                        />
-                        <button onClick={realizarReserva}>Confirmar Reserva</button>
+                    <div className="reservation-form-container">
+                        <button className="btn-close" onClick={() => setShowForm(false)}></button>
+                        <div className="reservation-form">
+                            <h5>Formulario de Reserva</h5>
+                            <input 
+                                type="email" 
+                                placeholder="Correo electrónico" 
+                                value={correo} 
+                                onChange={(e) => setCorreo(e.target.value)} 
+                                onBlur={verificarCliente} 
+                            />
+                            <input 
+                                type="date" 
+                                value={fechaReserva} 
+                                onChange={(e) => setFechaReserva(e.target.value)} 
+                            />
+                            <input 
+                                type="time" 
+                                value={horaInicio} 
+                                onChange={(e) => setHoraInicio(e.target.value)} 
+                            />
+                            <input 
+                                type="time" 
+                                value={horaFin} 
+                                onChange={(e) => setHoraFin(e.target.value)} 
+                            />
+                            <button className="btn-submit" onClick={realizarReserva}>Confirmar Reserva</button>
+                        </div>
                     </div>
                 )}
             </div>

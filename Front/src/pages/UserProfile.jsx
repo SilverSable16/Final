@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Detalle from './Detalle'; // Asegúrate de importar el componente Detalle
 import FacturasCliente from './FacturasCliente'; // Importa el componente de Facturas
 import './UserProfile.css'; // Importa el archivo CSS
+import { useNavigate } from 'react-router-dom'; // Cambiar a useNavigate
 
 const UserProfile = () => {
+    const navigate = useNavigate(); // Cambiar a useNavigate
     const [clientData, setClientData] = useState(null);
     const [editData, setEditData] = useState({});
     const [error, setError] = useState('');
     const [isEditing, setIsEditing] = useState(false);
-    const [reservas, setReservas] = useState([]); // Estado para las reservas
+    const [reservas, setReservas] = useState([]); // Estado para las reservasTF
     const [loadingReservas, setLoadingReservas] = useState(false); // Estado de carga para reservas
     const [correoCliente, setCorreoCliente] = useState(''); // Para almacenar el correo del cliente
     const [showFacturas, setShowFacturas] = useState(false); // Estado para mostrar facturas
@@ -122,10 +124,24 @@ const UserProfile = () => {
         }
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem('token'); // Elimina el token del localStorage
+        localStorage.removeItem('correoCliente'); // Opcional: Elimina el correo del localStorage
+        navigate('/Login'); // Redirige a la página principal
+    };
+
     if (error) return <div>Error: {error}</div>;
 
     return clientData ? (
         <div className="user-profile">
+            {/* Botón para redirigir a la página principal */}
+            <button 
+                className="btn-back" 
+                onClick={() => navigate('/')} // Cambiar a navigate
+                style={{ position: 'absolute', top: '10px', left: '10px' }}>
+                Ir a Inicio
+            </button>
+
             <h2>Perfil del Cliente</h2>
 
             {isEditing ? (
@@ -191,6 +207,12 @@ const UserProfile = () => {
                         {loadingReservas ? 'Cargando Reservas...' : 'Cargar Reservas'}
                     </button>
                     <button onClick={() => setShowFacturas((prev) => !prev)}>Ver Facturas</button> {/* Alterna la visibilidad de las facturas */}
+                    <button 
+                        className="btn-logout" 
+                        onClick={handleLogout} 
+                        style={{ position: 'absolute', top: '10px', right: '10px' }}>
+                        Cerrar Sesión
+                    </button> {/* Botón para cerrar sesión */}
 
                     {reservas.length > 0 && (
                         <div className="reservas-list">
