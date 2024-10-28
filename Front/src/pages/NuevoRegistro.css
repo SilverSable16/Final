@@ -1,0 +1,99 @@
+/* Estilo general para el contenedor */
+.login__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../Multi/Fondolog.jpg'); /* Cambia la ruta por la ubicación de tu imagen */
+    background-size: cover;
+}
+
+/* Estilo para el formulario */
+.form__wrapper {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Título del formulario */
+.form__wrapper h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo de los campos del formulario */
+.form__group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form__group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.form__group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* Botón de envío */
+.btn__primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn__primary:hover {
+    background-color: #0056b3;
+}
+
+/* Texto para alternar entre login y registro */
+.toggle__text {
+    margin-top: 15px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.toggle__text span {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.back-to-home-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000; /* Asegúrate de que el botón esté encima de otros elementos */
+}
+
+.back-to-home-button button {
+    background-color: #f76e11;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.back-to-home-button button:hover {
+    background-color: #e65c00; /* Cambia el color en hover */
+}
+

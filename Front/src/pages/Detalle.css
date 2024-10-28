@@ -1,0 +1,102 @@
+/* Detalle.css */
+
+.detalle-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-group button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-group button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+.reserva-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.single__reserva {
+    width: 200px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.single__reserva:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+.reserva__content h6 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.reserva__content p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.detalles-reserva {
+    margin-top: 20px;
+}
+
+.detalle-item {
+    margin-bottom: 15px;
+}
+
+.card {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0; /* Espaciado entre tarjetas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.detalle__reserva h2 {
+    margin-bottom: 16px;
+}
+
+.reserva__info p {
+    margin: 4px 0;
+}

@@ -1,0 +1,57 @@
+.facturas-cliente {
+    padding: 20px;
+}
+
+.input-cliente {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: calc(100% - 22px);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button-cargar {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-cargar:hover {
+    background-color: #0056b3;
+}
+
+.facturas-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.factura-card {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    flex: 1 1 200px; /* Adaptable al tamaño del contenedor */
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.factura-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.detalles-factura {
+    margin-top: 20px;
+}
+
+.detalle-item {
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}

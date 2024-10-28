@@ -10,6 +10,7 @@ import Ayuda from './pages/Ayuda';
 import Cart from './components/cart/Cart';
 import { CartProvider } from '../src/components/cart/CartContext'; // Asegúrate de que la ruta sea correcta
 import ErrorBoundary from './pages/ErrorBoundary';
+import UserProfile from './pages/UserProfile';
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                         <Route path="/sucursales" element={<Sucursales />} />
                         <Route path="/Ayuda" element={<Ayuda />} />
                         <Route path="/cart" element={<Cart />} />
+                        <Route path="/user-profile" element={<UserProfile />} />
                     </Routes>
                 </Router>
             </CartProvider>
