@@ -3,6 +3,9 @@ const db = require('./app/config/db.config.js'); // Importa la configuración de
 const config = require('./app/config/env.js'); // Archivo env.js
 const cors = require('cors');
 
+const paymentRoutes = require('./app/routers/payment.js');
+const facturaRoutes = require('./app/routers/facturaRoutes.js');
+
 
 const app = express();
 const PORT = process.env.PORT || 4000; // Puerto para Express
@@ -10,6 +13,9 @@ const PORT = process.env.PORT || 4000; // Puerto para Express
 // Middleware para parsear JSON
 app.use(cors());
 app.use(express.json());
+
+app.use('/api/payment', paymentRoutes);
+app.use('/api/factura', facturaRoutes);
 
 // Importar las rutas
 const router = require('./app/routers/router.js'); // Asegúrate de que la ruta sea correcta

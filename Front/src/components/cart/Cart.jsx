@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../cart/CartContext';
 import './cart.css';
+import axios from 'axios';
 
 const Cart = () => {
     const { cartItems, removeFromCart } = useContext(CartContext);
@@ -26,6 +27,21 @@ const Cart = () => {
     const formatTime = (dateTime) => {
         const options = { hour: '2-digit', minute: '2-digit', hour12: false };
         return new Date(dateTime).toLocaleTimeString([], options);
+    };
+
+    const totalCartAmount = cartItems.reduce((acc, item) => acc + (item.precio * (item.quantity || 1)), 0);
+
+    const handleCheckout = async () => {
+        try {
+            const response = await axios.post('http://localhost:4000/api/payment/create-checkout-session', { total: totalCartAmount });
+            if (response.data.url) {
+                window.location.href = response.data.url; // Redirige a la página de pago de Stripe
+            } else {
+                console.error("No se recibió una URL de pago.");
+            }
+        } catch (error) {
+            console.error("Error al redirigir al pago:", error);
+        }
     };
 
     return (
@@ -78,6 +94,9 @@ const Cart = () => {
             <div className="cart-total">
                 <h4>Total: Q{cartItems.reduce((acc, item) => acc + (item.precio * (item.quantity || 1)), 0).toFixed(2)}</h4>
             </div>
+            <button onClick={handleCheckout} className="checkout-button">
+                Proceder al Pago
+            </button>
         </div>
     );
 };

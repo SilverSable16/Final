@@ -12,7 +12,11 @@ import Cart from './components/cart/Cart';
 import { CartProvider } from '../src/components/cart/CartContext';
 import ErrorBoundary from './pages/ErrorBoundary';
 import UserProfile from './pages/UserProfile';
+<<<<<<< Updated upstream
 import LoadingScreen from './pages/LoadingScreen';
+=======
+import SuccessPage from './pages/SuccessPage';
+>>>>>>> Stashed changes
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -40,6 +44,7 @@ function App() {
                         <Route path="/Ayuda" element={<Ayuda />} />
                         <Route path="/cart" element={<Cart />} />
                         <Route path="/user-profile" element={<UserProfile />} />
+                        <Route path="/success" element={<SuccessPage />} />
                     </Routes>
                 </Router>
             </CartProvider>
