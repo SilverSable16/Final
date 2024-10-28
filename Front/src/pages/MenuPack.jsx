@@ -4,6 +4,7 @@ import Header from '../components/header/Header'; // Importa el Header
 import Footer from '../components/footer/Footer'; // Importa el Footer
 import ProductCard from '../components/product-card/ProductCard';
 import { useCart } from '../components/cart/CartContext'; // Asegúrate de que esta ruta sea correcta
+import LoadingScreen from '../pages/LoadingScreen';
 import './menu-pack.css';
 
 const MenuPack = () => {
@@ -32,7 +33,7 @@ const MenuPack = () => {
         fetchMenuItems();
     }, []);
 
-    if (loading) return <div>Cargando...</div>;
+    if (loading) return <LoadingScreen />;
     if (error) return <div>{error}</div>;
 
     return (

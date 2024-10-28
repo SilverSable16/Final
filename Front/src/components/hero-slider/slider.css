@@ -22,6 +22,14 @@
         padding: 5px 20px;
         font-size: 0.7rem;
     }
+    .slider__img img {
+        width: 80%; /* Ajusta el porcentaje según tus necesidades */
+        height: auto; /* Mantiene la relación de aspecto */
+        max-width: 400px; /* Puedes establecer un ancho máximo si lo deseas */
+        margin: 0 auto; /* Centra la imagen horizontalmente */
+        display: block; /* Asegúrate de que la imagen sea un bloque */
+    }
+    
 }
 @media only screen and (max-width: 767px){
     .slider__content{

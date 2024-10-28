@@ -19,25 +19,23 @@ const Testimonial = () => {
                     <Col lg="8" sm='12' md='12' className="m-auto">
                     <div className="slider__wrapper d-flex align-items-center gap-5 ">
                         <div className="slider__content w-50">
-                        <h2 className="mb-4">What our customers are saying</h2>
+                        <h2 className="mb-4">Lo que nuestras clientes están diciendo</h2>
                         <Slider {...settings}>
                             <div>
                                 <div className="single__testimonial">
                                     <p className="review__content">
-                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel consectetur urna, id fermentum ipsum. Sed viverra, lectus at bibendum ullamcorper, justo purus euismod neque, vel lobortis turpis metus vel lectus. Sed facilisis, ipsum sed consectetur facilisis, velit dui pellentesque felis, et tristique ipsum nisi non arcu."
+                                        "¡Excelente servicio! Hice mi pedido en la madrugada, y no solo me sorprendió la rapidez, sino también la calidad de la pizza a cualquier hora. Me encanta que ofrezcan soporte 24/7 y siempre tengan promociones. Recomendadísimo para cualquier ocasión."
                                     </p>
-                                    <h6>Jhon Doe</h6>
-                                    <p>Web Developer</p>
+                                    <h6>Mariana R.</h6>
                                 </div>
                             </div>
     
                             <div>
                                 <div className="single__testimonial">
                                     <p className="review__content">
-                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel consectetur urna, id fermentum ipsum. Sed viverra, lectus at bibendum ullamcorper, justo purus euismod neque, vel lobortis turpis metus vel lectus. Sed facilisis, ipsum sed consectetur facilisis, velit dui pellentesque felis, et tristique ipsum nisi non arcu."
+                                        "La mejor pizza que he probado en mucho tiempo. La masa es perfecta, crujiente por fuera y suave por dentro, y los ingredientes son frescos y de muy buena calidad. Además, la entrega fue rápida y gratuita. Definitivamente se ha convertido en mi lugar favorito para pedir pizza."
                                     </p>
-                                    <h6>Jhon Doe</h6>
-                                    <p>Web Developer</p>
+                                    <h6>Juan M</h6>
                                 </div>
                             </div>
                         </Slider>

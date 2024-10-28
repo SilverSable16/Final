@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'reactstrap';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
-import {sliderData} from "../../assets/fake-data/slider";
+import { sliderData } from "../../assets/fake-data/slider";
 import "./slider.css"
 
 const HeroSlider = () => {
@@ -14,34 +14,38 @@ const HeroSlider = () => {
         autoplay: true,
         autoplaySpeed: 3000
     };
-  return (
-    <section>
-        <Container>
-            <Slider {...settings}>
-                {sliderData.map(item => (
-                    <div key={item.id}>
-                        <div className="slider__wrapper d-flex align-items-center
-                        justify-content-between pt-5">
-                            <div className="slider__content w-50 ps-2">
-                                <h2 className="mb-3">{item.title}</h2>
-                                <p>{item.desc}</p>
-                                <button className="btn">
-    <Link to="/menu-pack" style={{ textDecoration: 'none', color: 'inherit' }}>
-        Explore Food
-    </Link>
-</button>
-                            </div>
+  
+    return (
+        <section>
+            <Container>
+                <Slider {...settings}>
+                    {sliderData.map(item => (
+                        <div key={item.id}>
+                            <div className="slider__wrapper d-flex align-items-center justify-content-between pt-5">
+                                <div className="slider__content w-50 ps-2">
+                                    <h2 className="mb-3">{item.title}</h2>
+                                    <p>{item.desc}</p>
+                                    <button className="btn">
+                                        <Link to="/menu-pack" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                            Explore Food
+                                        </Link>
+                                    </button>
+                                </div>
 
-                            <div className="slider__img w-50">
-                                <img src={item.imgUrl} alt="" className="w-100"/>
+                                <div className="slider__img w-50">
+                                    <img 
+                                        src={item.imgUrl} 
+                                        alt="" 
+                                        style={{ width: '80%', maxWidth: '400px', height: 'auto', margin: '0 auto', display: 'block' }} 
+                                    />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))
-                }
-            </Slider>
-        </Container>
-    </section>
+                    ))}
+                </Slider>
+            </Container>
+        </section>
     );
 };
-export default HeroSlider
+
+export default HeroSlider;

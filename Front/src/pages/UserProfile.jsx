@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import Detalle from './Detalle'; // Asegúrate de importar el componente Detalle
-import FacturasCliente from './FacturasCliente'; // Importa el componente de Facturas
-import './UserProfile.css'; // Importa el archivo CSS
-import { useNavigate } from 'react-router-dom'; // Cambiar a useNavigate
+import Detalle from './Detalle';
+import FacturasCliente from './FacturasCliente';
+import LoadingScreen from '../pages/LoadingScreen';
+import './UserProfile.css';
+import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
-    const navigate = useNavigate(); // Cambiar a useNavigate
+    const navigate = useNavigate();
     const [clientData, setClientData] = useState(null);
     const [editData, setEditData] = useState({});
     const [error, setError] = useState('');
     const [isEditing, setIsEditing] = useState(false);
-    const [reservas, setReservas] = useState([]); // Estado para las reservasTF
+    const [reservas, setReservas] = useState([]);
+    const [loadingClientData, setLoadingClientData] = useState(true); // Estado de carga para los datos del cliente
     const [loadingReservas, setLoadingReservas] = useState(false); // Estado de carga para reservas
-    const [correoCliente, setCorreoCliente] = useState(''); // Para almacenar el correo del cliente
-    const [showFacturas, setShowFacturas] = useState(false); // Estado para mostrar facturas
+    const [correoCliente, setCorreoCliente] = useState('');
+    const [showFacturas, setShowFacturas] = useState(false);
 
     useEffect(() => {
         const fetchClientData = async () => {
             try {
-                const storedEmail = localStorage.getItem('correoCliente'); // Asumiendo que guardas el correo en localStorage
+                const storedEmail = localStorage.getItem('correoCliente');
                 if (!storedEmail) {
                     throw new Error("No se encontró el correo del cliente.");
                 }
-                setCorreoCliente(storedEmail); // Almacena el correo del cliente
+                setCorreoCliente(storedEmail);
 
                 const token = localStorage.getItem('token');
 
@@ -39,10 +41,12 @@ const UserProfile = () => {
 
                 const data = await response.json();
                 setClientData(data.cliente);
-                setEditData(data.cliente); // Inicializa los datos editables
+                setEditData(data.cliente);
             } catch (error) {
                 setError(error.message);
-                console.error("Error en fetchClientData:", error); // Log del error
+                console.error("Error en fetchClientData:", error);
+            } finally {
+                setLoadingClientData(false); // Cambia el estado de carga a falso al finalizar
             }
         };
 
@@ -60,7 +64,7 @@ const UserProfile = () => {
                 throw new Error("No se encontró la información del cliente");
             }
 
-            const clientId = clientData.id; // Usamos el ID obtenido de la API
+            const clientId = clientData.id;
             const token = localStorage.getItem('token');
 
             const response = await fetch(`https://federico-fazbear.onrender.com/api/cliente/update/${clientId}`, {
@@ -74,8 +78,8 @@ const UserProfile = () => {
                     apellido: editData.apellido,
                     direccion: editData.direccion,
                     nit: editData.nit,
-                    telefono: parseInt(editData.telefono), // Asegúrate de que el teléfono sea un número
-                    fechaNacimiento: new Date(editData.fechaNacimiento).toISOString().split('T')[0], // Formato YYYY-MM-DD
+                    telefono: parseInt(editData.telefono),
+                    fechaNacimiento: new Date(editData.fechaNacimiento).toISOString().split('T')[0],
                 }),
             });
 
@@ -105,7 +109,7 @@ const UserProfile = () => {
         try {
             const response = await fetch(`https://federico-fazbear.onrender.com/api/clientesReserva/${correoCliente}/reserva`, {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Asegúrate de incluir el token en la solicitud
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
             });
 
@@ -125,19 +129,21 @@ const UserProfile = () => {
     };
 
     const handleLogout = () => {
-        localStorage.removeItem('token'); // Elimina el token del localStorage
-        localStorage.removeItem('correoCliente'); // Opcional: Elimina el correo del localStorage
-        navigate('/Login'); // Redirige a la página principal
+        localStorage.removeItem('token');
+        localStorage.removeItem('correoCliente');
+        navigate('/Login');
     };
 
     if (error) return <div>Error: {error}</div>;
 
+    // Mostrar LoadingScreen si los datos del cliente están cargando
+    if (loadingClientData) return <LoadingScreen />;
+
     return clientData ? (
         <div className="user-profile">
-            {/* Botón para redirigir a la página principal */}
             <button 
                 className="btn-back" 
-                onClick={() => navigate('/')} // Cambiar a navigate
+                onClick={() => navigate('/')}
                 style={{ position: 'absolute', top: '10px', left: '10px' }}>
                 Ir a Inicio
             </button>
@@ -204,15 +210,15 @@ const UserProfile = () => {
 
                     <button onClick={() => setIsEditing(true)}>Editar perfil</button>
                     <button onClick={fetchReservas} disabled={loadingReservas}>
-                        {loadingReservas ? 'Cargando Reservas...' : 'Cargar Reservas'}
+                        {loadingReservas ? <LoadingScreen /> : 'Cargar Reservas'} {/* Usa LoadingScreen si está cargando */}
                     </button>
-                    <button onClick={() => setShowFacturas((prev) => !prev)}>Ver Facturas</button> {/* Alterna la visibilidad de las facturas */}
+                    <button onClick={() => setShowFacturas((prev) => !prev)}>Ver Facturas</button>
                     <button 
                         className="btn-logout" 
                         onClick={handleLogout} 
                         style={{ position: 'absolute', top: '10px', right: '10px' }}>
                         Cerrar Sesión
-                    </button> {/* Botón para cerrar sesión */}
+                    </button>
 
                     {reservas.length > 0 && (
                         <div className="reservas-list">
@@ -226,10 +232,10 @@ const UserProfile = () => {
                     )}
                 </>
             )}
-            {showFacturas && <FacturasCliente />} {/* Mostrar el componente de facturas si se activa */}
+            {showFacturas && <FacturasCliente />}
         </div>
     ) : (
-        <div>Cargando datos del cliente...</div>
+        <LoadingScreen /> // Pantalla de carga cuando los datos aún no están disponibles
     );
 };
 
