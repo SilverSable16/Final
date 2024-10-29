@@ -42,10 +42,9 @@ const UserProfile = () => {
                 const data = await response.json();
                 setClientData(data.cliente);
                 setEditData(data.cliente);
-<<<<<<< Updated upstream
-=======
-                localStorage.setItem('idCliente', data.cliente.id); // Inicializa los datos editables
->>>>>>> Stashed changes
+                localStorage.setItem('idClienteid',data.cliente.id);
+                 // Inicializa los datos editables
+
             } catch (error) {
                 setError(error.message);
                 console.error("Error en fetchClientData:", error);

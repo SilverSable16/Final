@@ -34,6 +34,29 @@ const Login = () => {
 
             const data = await response.json();
 
+            try{
+                const responseId = await fetch(`https://federico-fazbear.onrender.com/api/cliente/${username}`, {
+                    headers: {
+                        'Content-Type': 'application/json', // Útil si tu API espera JSON
+                        // Añade otras cabeceras aquí si es necesario
+                    },
+                });
+
+                if (!responseId.ok) {
+                    throw new Error(`Error en la solicitud: ${response.status}`);
+                }
+            
+            
+            const apiId = await responseId.json(); // Parseo de la respuesta en JSON
+            console.log(apiId.idCliente);
+            localStorage.setItem('idLogeado',apiId.idCliente);
+            console.log(localStorage.getItem('idLogeado')); // Aquí puedes trabajar con `apiId`
+            } catch {
+                console.error('Error al obtener el Id del cliente:', error);
+            }
+
+
+
             if (response.ok) {
                 setToken(data.token);
                 localStorage.setItem('token', data.token);

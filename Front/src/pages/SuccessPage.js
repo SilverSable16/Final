@@ -3,17 +3,19 @@
 import React, { useEffect, useContext } from 'react';
 import { CartContext } from '../components/cart/CartContext';
 import axios from 'axios';
+//import clientId from '../pages/UserProfile.jsx';
 
 
 const SuccessPage = () => {
     const { cartItems, clearCart } = useContext(CartContext);
 
     useEffect(() => {
+
         // Datos necesarios (idealmente deberían obtenerse del usuario autenticado)
-        const idCliente = parseInt(localStorage.getItem('idCliente'));
+        const idCliente = localStorage.getItem('idLogeado');
         const idEmpleado = null;
-        const idSucursal = 1||2;
-        const correo = localStorage.getItem('correoCliente');;
+        const idSucursal = 1;
+        const correo = localStorage.getItem('correoCliente');
 
         // Cálculo del total
         const total = cartItems.reduce((acc, item) => acc + item.precio * (item.quantity || 1), 0);
@@ -56,6 +58,8 @@ const SuccessPage = () => {
 
         realizarCompra();
     }, [cartItems, clearCart]);
+
+
 
     return (
         <div>

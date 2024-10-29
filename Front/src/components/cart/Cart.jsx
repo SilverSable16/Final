@@ -61,7 +61,7 @@ const Cart = () => {
                                     <h5>{item.nombre}</h5>
                                     <p>Precio: Q{item.precio}</p>
                                     <p>Cantidad: {item.quantity}</p>
-                                    <p>Total: Q{(item.precio * item.quantity).toFixed(2)}</p>
+                                    <p>Total: ${(item.precio * item.quantity).toFixed(2)}</p>
                                     <input
                                         type="number"
                                         min="1"
@@ -83,7 +83,7 @@ const Cart = () => {
                                     <p>Capacidad: {item.cantidadPersonas}</p>
                                     <p>Fecha: {item.fechaReserva}</p>
                                     <p>Hora: {formatTime(item.horaInicial)} - {formatTime(item.horaFinal)}</p>
-                                    <p>Precio: Q{item.precio}</p>
+                                    <p>Precio: ${item.precio}</p>
                                     <button onClick={() => handleRemove(item.codigoMesaReserva)}>Eliminar</button>
                                 </div>
                             </>
