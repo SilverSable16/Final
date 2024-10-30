@@ -8,12 +8,15 @@ import "slick-carousel/slick/slick-theme.css";
 
 import App from "./App";
 import { CartProvider } from '../src/components/cart/CartContext';// Asegúrate de que la ruta sea correcta
+import { SubCartProvider } from "./pages/SubCartContext";
 
 ReactDOM.render(
   <CartProvider>
+    <SubCartProvider>
   <React.StrictMode>
       <App />
   </React.StrictMode>
+  </SubCartProvider>
   </CartProvider>,
   document.getElementById("root")
 );

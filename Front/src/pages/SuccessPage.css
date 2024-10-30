@@ -1,0 +1,63 @@
+/* src/pages/SuccessPage.css */
+
+.success-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #141124; /* Fondo oscuro */
+    color: #f76e11; /* Color de texto naranja */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.success-page h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #f76e11;
+    text-shadow: 2px 2px #000; /* Sombra para hacer que resalte */
+}
+
+.success-page p {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.success-page .success-icon {
+    font-size: 4rem;
+    color: #34c759; /* Verde para resaltar el éxito */
+    margin-bottom: 20px;
+}
+
+.success-page .back-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #f76e11;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.success-page .back-button:hover {
+    background-color: #d45a0e; /* Color más oscuro en hover */
+}
+
+.download-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.download-button:hover {
+    background-color: #45a049;
+}
