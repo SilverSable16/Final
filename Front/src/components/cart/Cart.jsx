@@ -33,7 +33,7 @@ const Cart = () => {
 
     const handleCheckout = async () => {
         try {
-            const response = await axios.post('http://localhost:4000/api/payment/create-checkout-session', { total: totalCartAmount });
+            const response = await axios.post('https://federicos-fazbear-backend.onrender.com/api/payment/create-checkout-session', { total: totalCartAmount });
             if (response.data.url) {
                 window.location.href = response.data.url; // Redirige a la página de pago de Stripe
             } else {
