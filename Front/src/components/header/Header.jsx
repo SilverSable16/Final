@@ -64,11 +64,6 @@ const Header = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <div className="menu_right d-flex align-items-center">
-                                <div className="custom__search">
-                                    <input type="text" placeholder="Search..." />
-                                    <span><i className="ri-search-line"></i></span>
-                                </div>
                                 <div className={`cart__icon ${cartUpdated ? 'cart-icon-updated' : ''}`} style={{ marginLeft: '15px' }}>
                                     <Link to="/cart">
                                         <i className="ri-shopping-cart-line" style={{ fontSize: '1.5rem' }}></i>
@@ -87,7 +82,6 @@ const Header = () => {
                     <div className="mobile_menu">
                         <span><i className="ri-menu-line" onClick={menuToggle}></i></span>
                     </div>
-                </div>
             </Container>
         </header>
     );

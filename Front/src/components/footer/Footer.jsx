@@ -2,6 +2,7 @@ import React from "react";
 import './footer.css';
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import logo from '../../assets/images/Logo.png';
+import successSound from '.././../Multi/egg.mp3';
 
 const footerQuickLinks = [
     {
@@ -43,6 +44,12 @@ const footerLinks = [
 
 const Footer = () => {
 
+    // Función para manejar el doble clic y reproducir el sonido
+    const handleLogoDoubleClick = () => {
+        const audio = new Audio(successSound);
+        audio.play();
+    };
+
     return (
         <footer className="footer">
             <div className="footer__top">
@@ -53,6 +60,7 @@ const Footer = () => {
                                 <img 
                                     src={logo}
                                     alt="Federico Fazbear Logo"
+                                    onDoubleClick={handleLogoDoubleClick} // Evento de doble clic
                                     style={{ width: '100px', height: 'auto', marginRight: '10px' }}
                                 />
                                 <h2 className=" d-flex align-items-center gap-1 mb-4">

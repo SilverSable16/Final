@@ -14,11 +14,11 @@ import ErrorBoundary from './pages/ErrorBoundary';
 import UserProfile from './pages/UserProfile';
 import LoadingScreen from './pages/LoadingScreen';
 import SuccessPage from './pages/SuccessPage';
+
 function App() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Simulamos la carga durante 2 segundos
         const timer = setTimeout(() => setIsLoading(false), 2000);
         return () => clearTimeout(timer);
     }, []);
@@ -42,7 +42,7 @@ function App() {
                         <Route path="/user-profile" element={<UserProfile />} />
                         <Route path="/success" element={<SuccessPage />} />
                     </Routes>
-                    </Router>
+                </Router>
             </CartProvider>
         </ErrorBoundary>
     );
