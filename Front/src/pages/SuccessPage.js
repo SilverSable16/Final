@@ -29,10 +29,13 @@ const SuccessPage = () => {
 
         const productos = cartItems.map(item => ({
             idAlimento: item.idAlimento,
+            nombreAlimento: item.nombre,
             costo: item.precio * (item.quantity || 1),
             lugarCompra: 'Linea',
             noReserva: item.noReserva || null,
         }));
+
+        
 
         const realizarCompra = async () => {
             const body = {
@@ -89,10 +92,10 @@ const SuccessPage = () => {
                 startY: 70,
                 head: [['Nombre del Producto', 'Cantidad Pedida', 'Precio Unitario', 'Total del Producto']],
                 body: invoiceData.productos.map(item => [
-                    item.idAlimento || "Producto desconocido", // Nombre del producto
+                    item.nombreAlimento || "Producto desconocido", // Nombre del producto
                     item.cantidad || 1, // Cantidad pedida
-                    `Q${(item.costo / (item.cantidad || 1)).toFixed(2)}`, // Precio unitario
-                    `Q${(item.costo).toFixed(2)}` // Total de ese producto
+                    `$${(item.costo / (item.cantidad || 1)).toFixed(2)}`, // Precio unitario
+                    `$${(item.costo).toFixed(2)}` // Total de ese producto
                 ]),
                 theme: 'grid',
                 headStyles: {
@@ -114,7 +117,7 @@ const SuccessPage = () => {
             // Total de la factura
             doc.setFontSize(14);
             doc.setTextColor(40, 100, 160);
-            doc.text(`Total: Q${invoiceData.total.toFixed(2)}`, 14, doc.lastAutoTable.finalY + 10);
+            doc.text(`Total: $${invoiceData.total.toFixed(2)}`, 14, doc.lastAutoTable.finalY + 10);
     
             // Guardar PDF
             doc.save('factura_compra.pdf');

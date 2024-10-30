@@ -59,7 +59,7 @@ const Cart = () => {
                                 />
                                 <div className="cart-item-details">
                                     <h5>{item.nombre}</h5>
-                                    <p>Precio: Q{item.precio}</p>
+                                    <p>Precio: ${item.precio}</p>
                                     <p>Cantidad: {item.quantity}</p>
                                     <p>Total: ${(item.precio * item.quantity).toFixed(2)}</p>
                                     <input
