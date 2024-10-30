@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "react-scripts start --openssl-legacy-provider",
-    "build": "react-scripts build --openssl-legacy-provider"
+    "build": "chmod +x ./node_modules/.bin/react-scripts && react-scripts build --openssl-legacy-provider"
   },
   "eslintConfig": {
     "extends": [
