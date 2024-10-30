@@ -75,12 +75,13 @@ const Header = () => {
                                         <i className="ri-user-line" style={{ fontSize: '1.5rem' }}></i>
                                     </span>
                                 </div>
+                                
+                                <div className="mobile_menu">
+                                <span><i className="ri-menu-line" onClick={menuToggle}></i></span>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
-
-                    <div className="mobile_menu">
-                        <span><i className="ri-menu-line" onClick={menuToggle}></i></span>
                     </div>
             </Container>
         </header>

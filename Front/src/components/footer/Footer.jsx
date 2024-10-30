@@ -68,7 +68,7 @@ const Footer = () => {
                                 </h2>
                             </div>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At ex quae consequuntur amet natus similique magnam.
+                                Nada paso en nuestros locales entre 1983 y 1987, dejen de preguntar por favor.
                             </p>
                         </Col>
 
@@ -121,7 +121,7 @@ const Footer = () => {
                 <Container>
                     <Row>
                         <Col lg="12">
-                                <p>copyright 2024, developed by Pumaras Networks. All rights reserved</p>
+                                <p>copyright 2024, developed by Federico's Fazbear. All rights reserved</p>
                         </Col>
                     </Row>
                 </Container>
